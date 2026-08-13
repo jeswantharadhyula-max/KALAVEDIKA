@@ -1,0 +1,16 @@
+services:
+  - type: web
+    name: kalavedika-api
+    env: node
+    region: singapore
+    plan: free
+    buildCommand: npm install
+    startCommand: npm start
+    envVars:
+      - key: NODE_ENV
+        value: production
+      - key: JWT_SECRET
+        generateValue: true
+      - key: CLIENT_URL
+        sync: false   # fill this in Render dashboard after Vercel deploy
+    healthCheckPath: /health
